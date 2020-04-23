@@ -18,7 +18,7 @@ const basic = () => {
     // Call constructor through alias, have type check
     // But returns a Anonymous Subject
     // Is deprecated
-    // const observable = Observable.create((subscriber: Subscriber<number>) => {
+    //const observable = Observable.create((subscriber: Subscriber<number>) => {
 
     // Call constructor directly
     // Always type, new doesn't enforce type check!
@@ -39,7 +39,7 @@ const basic = () => {
     });
 
     // Lazy loading, the observable will only run if has a subscriber;
-    observable.subscribe((value: number) => console.log(`First Subscriber - Value: ${value}`));
+    observable.subscribe((value) => console.log(`First Subscriber - Value: ${value}`));
     observable.subscribe(
         (value: number) => console.log(`Second Subscriber - Value: ${value}`),
         (error: Error) => console.log(error),
@@ -164,7 +164,7 @@ const ofOtherResource = () => {
         return of(0);
     };
 
-    internalFunc(false).subscribe(
+    internalFunc(true).subscribe(
         (value: number) => console.log(`Internal Function Value: ${value}`),
         (error: Error) => console.log(error),
         () => logSection('Of Resource End')
@@ -185,6 +185,7 @@ const rangeValues = () => {
 
 /**
  * Emit error on subscription
+ * Promise.reject()
  */
 const emitError = () => {
     logSection('Emit Error');
@@ -200,11 +201,11 @@ const emitError = () => {
 
 export const CreationLesson: Lesson = {
     run() {
-        basic();
-        // immediateCompletion();
-        // fromOtherResource();
-        // intervalObservable();
-        // ofOtherResource();
+        // basic();
+         //immediateCompletion();
+         //fromOtherResource();
+         //intervalObservable();
+         //ofOtherResource();
         // rangeValues();
         // emitError();
     },
