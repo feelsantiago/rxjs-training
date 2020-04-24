@@ -84,9 +84,9 @@ const combine = () => {
 
 export const Operators: Lesson = {
     run() {
-        // basic();
+        basic();
         // wait();
         // order();
-        combine();
+        // combine();
     },
 };
