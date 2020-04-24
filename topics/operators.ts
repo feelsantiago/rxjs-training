@@ -70,6 +70,8 @@ const order = () => {
  */
 const combine = () => {
 
+    logSection('Combine Observables');
+
     const obs1 = of(1, 2, 3);
     const obs2 = of(4, 5, 6).pipe(delay(2000));
     const obs3 = of(7, 8, 9);
@@ -80,6 +82,8 @@ const combine = () => {
 
     // Merge subscribe to all observable and emits they values
     merge(obs1, obs2, obs3).subscribe((value) => console.log(`Merge value: ${value}`));
+
+    logSection('Combine Observables End');
 }
 
 export const Operators: Lesson = {
