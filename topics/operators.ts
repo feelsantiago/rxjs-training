@@ -6,8 +6,8 @@
  */
 
 import { Lesson } from '../lesson';
-import { interval, of, forkJoin, zip } from 'rxjs';
-import { map, filter, tap } from 'rxjs/operators';
+import { interval, of, forkJoin, zip, concat, merge } from 'rxjs';
+import { map, filter, tap, delay } from 'rxjs/operators';
 import { logSection } from '../utils/formatter';
 
 /**
@@ -65,10 +65,28 @@ const order = () => {
     obs.subscribe((value) => console.log(`Value emitted: ${value}`));
 };
 
+/**
+ * Combine multiples observables
+ */
+const combine = () => {
+
+    const obs1 = of(1, 2, 3);
+    const obs2 = of(4, 5, 6).pipe(delay(2000));
+    const obs3 = of(7, 8, 9);
+
+    // Concat keeps the order of emission
+    // Concat waist the previous observable complete to subscribe on the next
+    concat(obs1, obs2, obs3).subscribe((value) => console.log(`Concat value: ${value}`));
+
+    // Merge subscribe to all observable and emits they values
+    merge(obs1, obs2, obs3).subscribe((value) => console.log(`Merge value: ${value}`));
+}
+
 export const Operators: Lesson = {
     run() {
         // basic();
         // wait();
-        order();
+        // order();
+        combine();
     },
 };
