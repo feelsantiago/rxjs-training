@@ -72,8 +72,8 @@ const unsubscribeObservables = () => {
 
 export const DisposeLesson: Lesson = {
     run() {
-        exclusiveExecution();
-        // deleteExecution();
+        // exclusiveExecution();
+        deleteExecution();
         // unsubscribeObservables();
     },
 };

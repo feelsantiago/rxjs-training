@@ -78,19 +78,19 @@ const combine = () => {
 
     // Concat keeps the order of emission
     // Concat waist the previous observable complete to subscribe on the next
-    concat(obs1, obs2, obs3).subscribe((value) => console.log(`Concat value: ${value}`));
+    // concat(obs1, obs2, obs3).subscribe((value) => console.log(`Concat value: ${value}`));
 
     // Merge subscribe to all observable and emits they values
     merge(obs1, obs2, obs3).subscribe((value) => console.log(`Merge value: ${value}`));
 
-    logSection('Combine Observables End');
+    // logSection('Combine Observables End');
 }
 
 export const Operators: Lesson = {
     run() {
-        basic();
+        // basic();
         // wait();
         // order();
-        // combine();
+        combine();
     },
 };

@@ -50,6 +50,6 @@ const hotObservable = () => {
 export const HotColdLesson: Lesson = {
     run() {
         coldObservable();
-        hotObservable();
+        // hotObservable();
     },
 };

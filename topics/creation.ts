@@ -28,7 +28,7 @@ const basic = () => {
         subscriber.next(2);
         subscriber.next(3);
 
-        // async
+        // async=
         // Observables are design to the programmer not have to worry about
         // sync ou async code
         setTimeout(() => {
